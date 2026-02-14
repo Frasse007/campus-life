@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="North Park University Campus Life - Your all-in-one solution for keeping up with everything that happens on campus">
+    <title>NPU Campus Life - Map</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB">
+
+    <!-- Leaflet CSS for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav id="sidebar" class="sidebar" aria-label="Main navigation">
+        <div class="sidebar-header">
+            <h2>Campus Life</h2>
+            <button id="closeSidebar" class="close-btn" aria-label="Close sidebar nav">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="/index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/pages/news/index.html"><i class="fas fa-newspaper"></i> News</a></li>
+            <li><a href="/pages/events/index.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+            <li><a href="/pages/map/index.html" class="active"><i class="fas fa-map-marked-alt"></i> Campus Map</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <p>&copy; 2026 NPU Campus Life</p>
+        </div>
+    </nav>
+
+    <!-- Overlay for sidebar -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container-fluid">
+            <div class="header-content">
+                <!-- Menu Button -->
+                 <button id="menuBtn" class="menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+                    <i class="fas fa-bars"></i>
+                    <span>MENU</span>
+                 </button>
+
+                <!-- Navigation Links -->
+                <nav class="header-nav" aria-label="Page navigation">
+                    <a href="/pages/news/index.html" class="nav-link">NEWS</a>
+                    <a href="/pages/events/index.html" class="nav-link">EVENTS</a>
+                    <a href="/pages/map/index.html" class="nav-link">MAP</a>
+                    <a href="#placeholder" class="nav-link">PLACEHOLDER</a>
+                </nav>
+
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="/images/logo.png" alt="North Park University Logo">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content map-page">
+        <div class="map-layout">
+            <!-- Map Container -->
+            <section class="map-container-section" aria-label="Interactive campus map">
+                <div id="campusMap" class="campus-map" role="application" aria-label="Campus map showing building locations">
+                    <!-- Render map here with Leaflet -->
+                </div>
+
+                <!-- Controls for Map -->
+                <div class="map-controls">
+                    <button id="resetView" class="map-control-btn" aria-label="Reset map view">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                        <span>Reset View</span>
+                    </button>
+                    <button id="myLocation" class="map-control-btn" aria-label="Show my location">
+                        <i class="fas fa-location-arrow"></i>
+                        <span>My Location</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Map Locations Sidebar -->
+            <aside class="map-sidebar" aria-label="Campus location list">
+                <div class="map-sidebar-header">
+                    <h2>Campus Locations</h2>
+                    <div class="search-box">
+                        <label for="locationSearch" class="visually-hidden">Search for a location</label>
+                        <input 
+                            type="search"
+                            id="locationSearch"
+                            class="form-control"
+                            placeholder="Search locations..."
+                            aria-label="Search campus locations">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <!-- Category Filter for Map -->
+                <div class="category-filters">
+                    <button class="category-btn active" data-category="all">
+                        <i class="fas fa-border-all"></i> All
+                    </button>
+                    <button class="category-btn" data-category="academic">
+                        <i class="fas fa-university"></i> Academic
+                    </button>
+                    <button class="category-btn" data-category="dining">
+                        <i class="fas fa-utensils"></i> Dining
+                    </button>
+                    <button class="category-btn" data-category="housing">
+                        <i class="fas fa-home"></i> Housing
+                    </button>
+                    <button class="category-btn" data-category="recreation">
+                        <i class="fas fa-running"></i> Recreation
+                    </button>
+                    <button class="category-btn" data-category="parking">
+                        <i class="fas fa-parking"></i> Parking
+                    </button>
+                </div>
+
+                <!-- Locations List -->
+                <div id="locationsList" class="locations-list">
+                    <!-- Placeholder for failed dynamically loading of map -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading locations...</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer minimal on map page to keep focus on map -->
+    <footer class="map-footer">
+        <div class="container-fluid">
+            <p>&copy; 2026 NPU Campus Life | <a href="/index.html">Home</a> | <a href="/pages/news/index.html">News</a> | <a href="/pages/events/index.html">Events</a></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    
+
+    <!-- Leaflet JS -->
+    
+
+    <!-- Custom JS -->
+    
+</body>
+</html>
