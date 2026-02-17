@@ -88,8 +88,9 @@ function renderCalendar() {
     }
     
     // Fills remaining cells of grid with next month's days
-    const totalCells = daysHTML.match(/calendar-day/g).length;
-    const remainingCells = 42 - totalCells;
+    const matches = daysHTML.match(/calendar-day/g);
+    const totalCellsSoFar = matches ? matches.length : 0;
+    const remainingCells = 42 - totalCellsSoFar;
     
     // Loops from first day of next month until grid is full and adds them to calendar
     for (let day = 1; day <= remainingCells; day++) {
