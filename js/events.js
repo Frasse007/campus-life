@@ -15,21 +15,35 @@ function initEventsList() {
     renderEventsList(events);
 }
 
+// Handles clicking on day in calendar grid
+function handleDayClick(dateString) {
+    selectedDate = dateString;
+
+    document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+    document.querySelector(`.calendar-day[data-date="${dateString}"]`)?.classList.add('selected');
+
+    const dayEvents = getEventsForDate(dateString);
+
+    // Filters the event list
+    renderEventsList(dayEvents, dateString);
+}
+
 // Renders the events list
-function renderEventsList(events) {
+function renderEventsList(events, dateString = null) {
     const eventsListContainer = document.getElementById('eventsList');
     if (!eventsListContainer) return;
 
     // Response if no events items are found
     if (events.length === 0) {
-        eventsListContainer.innerHTML = `
+    eventsListContainer.innerHTML = `
         <div class="no-results">
             <i class="fas fa-calendar-times"></i>
-            <p>No events found for this month</p>
+            <p>${selectedDate ? `No events on ${formatDate(dateString)}` : 'No events found for this month'}</p>
+            ${selectedDate ? `<button onclick="resetEventsFilter()" class="reset-filter-btn">View all events</button>` : ''}
         </div>
     `;
     return;
-    }
+}
 
     // Sorts events by date
     const sortedEvents = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -68,6 +82,13 @@ function renderEventsList(events) {
     });
 }
 
+// Resets the event filter
+function resetEventsFilter() {
+    selectedDate = null;
+    document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+    renderEventsList(eventsData);
+}
+
 // Initializes the event filter
 function initEventsFilter() {
     const filterSelect = document.getElementById('eventFilter');
@@ -93,7 +114,7 @@ function filterEvents(category) {
 // Get nicely formatted category names
 function getCategoryName(category) {
     const categories = {
-        'academics': 'Academics',
+        'academic': 'Academic',
         'athletics': 'Athletics',
         'social': 'Social',
         'cultural': 'Cultural'
