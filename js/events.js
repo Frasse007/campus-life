@@ -39,7 +39,7 @@ function renderEventsList(events, dateString = null) {
         <div class="no-results">
             <i class="fas fa-calendar-times"></i>
             <p>${selectedDate ? `No events on ${formatDate(dateString)}` : 'No events found for this month'}</p>
-            ${selectedDate ? `<button onclick="resetEventsFilter()" class="reset-filter-btn">View all events</button>` : ''}
+            ${selectedDate ? `<button onclick="resetEventsFilter()" id="reset-filter-btn">View all events</button>` : ''}
         </div>
     `;
     return;
