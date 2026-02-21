@@ -127,7 +127,7 @@ function renderCalendar() {
 function setupCalendarControls() {
     const prevBtn = document.getElementById('prevMonth');
     const nextBtn = document.getElementById('nextMonth');
-    const todayBtn = document.getElementById('todayMonth');
+    const todayBtn = document.getElementById('todayBtn');
 
     // Goes to previous month if button is clicked
     if (prevBtn) {
