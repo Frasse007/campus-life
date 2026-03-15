@@ -51,11 +51,13 @@ function addMarkers(locations) {
     
     // Creates custom icons based on category assigned
     const iconColors = {
-        'academic': '#002855',
+        'academic': '#007bff',
         'dining': '#FFD100',
-        'housing': '#28a745',
+        'housing': '#fd7e14',
         'recreation': '#dc3545',
-        'parking': '#6c757d'
+        'parking': '#6c757d',
+        'services': '#002855',
+        'athletics': '#28a745'
     };
     
     locations.forEach(location => {
@@ -338,7 +340,9 @@ function getCategoryName(category) {
         'dining': 'Dining',
         'housing': 'Housing',
         'recreation': 'Recreation',
-        'parking': 'Parking'
+        'parking': 'Parking',
+        'services': 'Services',
+        'athletics': 'Athletics'
     };
     return categories[category] || category;
 }
