@@ -51,7 +51,7 @@ function renderEventsList(events, dateString = null) {
     // Response if events item is found
     eventsListContainer.innerHTML = sortedEvents.map(event => `
         <article class="event-item"
-                onclick="window.location.href='/pages/events/article.html?type=event&id=${event.id}'"
+                onclick="window.location.href='/campus-life/pages/events/article.html?type=event&id=${event.id}'"
                 role="button"
                 tabindex="0"
                 data-category="${event.category}">

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('main-content').innerHTML = `
             <div class="container">
                 <h1>Content not found</h1>
-                <a href="/pages/news/index.html" class="btn btn-outline">
+                <a href="/campus-life/pages/news/index.html" class="btn btn-outline">
                     <i class="fas fa-arrow-left"></i> Back to All News
                 </a>
             </div>`;

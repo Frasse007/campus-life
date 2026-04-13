@@ -30,7 +30,7 @@ function initNewsCarousel() {
                     <span><i class="fas fa-user"></i> ${news.author}</span>
                 </div>
                 <p class="news-excerpt">${news.excerpt}</p>
-                <a href="/pages/news/article.html?type=news&id=${news.id}" class="btn btn-primary">Read More</a>
+                <a href="/campus-life/pages/news/article.html?type=news&id=${news.id}" class="btn btn-primary">Read More</a>
             </div>
         </div>
     `).join('');
@@ -183,7 +183,7 @@ function renderNewsList(newsItems) {
 
     // Response if news items are found
     newsListContainer.innerHTML = newsItems.map(news => `
-        <article class="news-item" onclick="window.location.href='/pages/news/article.html?type=news&id=${news.id}'" role="button" tabindex="0">
+        <article class="news-item" onclick="window.location.href='/campus-life/pages/news/article.html?type=news&id=${news.id}'" role="button" tabindex="0">
             <img src="${news.image}" alt="${news.title}" loading="lazy">
             <div class="news-item-content">
                 <span class="category-badge ${news.category}">${getCategoryName(news.category)}</span>
