@@ -74,21 +74,27 @@
             <article class="news-detail">
                 <!-- News Header -->
                 <header class="news-header">
-                    <div class="news-category" id="newsCategory">
-                        </div>
+                    <div class="news-category" id="newsCategory"></div>
                     <!-- Dynamically load event title -->
                     <h1 id="articleTitle">Loading...</h1>
+                    <div class="article-meta" id="articleMeta"></div>
                 </header>
 
                 <!-- Dynamically load news image here-->
                 <figure class="article-image">
                     <img id="articleImage" src="" alt="" loading="lazy">
                 </figure>
-
-                <div class="article-description" id="articleDescription">
-                    </div>
-                </div>
+                
+                <!-- News Description -->
+                <div class="article-description" id="articleDescription"></div>
             </article>
+
+            <!-- Back to All News -->
+            <div class="back-link">
+                <a href="/pages/news/index.html" class="btn btn-outline">
+                    <i class="fas fa-arrow-left"></i> Back to All News
+                </a>
+            </div>
         </div>
     </main>
 

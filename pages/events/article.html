@@ -74,8 +74,7 @@
             <article class="event-detail">
                 <!-- Event Header -->
                 <header class="event-header">
-                    <div class="event-category" id="eventCategory">
-                        </div>
+                    <div class="event-category" id="eventCategory"></div>
                     <!-- Dynamically load event title -->
                     <h1 id="articleTitle">Loading...</h1>
                 </header>
@@ -91,30 +90,41 @@
                         <div class="info-card">
                             <h2>Event Information</h2>
                             <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-calendar-alt"></i></div>
                                 <div class="info-details">
                                     <strong>Date</strong>
                                     <p id="eventDate"></p>
                                 </div>
                             </div>
                             <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-clock"></i></div>
                                 <div class="info-details">
                                     <strong>Time</strong>
                                     <p id="eventTime"></p>
                                 </div>
                             </div>
                             <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
                                 <div class="info-details">
                                     <strong>Location</strong>
                                     <p id="eventLocation"></p>
+                                    <a href="/pages/map/index.html" id="eventMapLink" class="view-map-link">View on map</a>
                                 </div>
                             </div>
                         </div>
                     </aside>
 
-                    <div class="article-description" id="articleDescription">
-                        </div>
+                    <!-- Event Description -->
+                    <div class="article-description" id="articleDescription"></div>
                 </div>
             </article>
+
+            <!-- Back to All Events -->
+            <div class="back-link">
+                <a href="/pages/events/index.html" class="btn btn-outline">
+                    <i class="fas fa-arrow-left"></i> Back to All Events
+                </a>
+            </div>
         </div>
     </main>
 
