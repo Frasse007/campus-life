@@ -621,10 +621,7 @@ a:hover {
 }
 
 .weather-card {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 209, 0, 0.2);
-    border-radius: 16px;
-    padding: var(--spacing-xl);
+    padding: var(--spacing-xl) 0;
     color: var(--text-white);
 }
 
@@ -636,7 +633,7 @@ a:hover {
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid rgba(255, 209, 0, 0.15);
+    border-bottom: 2px solid var(--dark-yellow);
 }
 
 .weather-temp-block {
@@ -684,14 +681,13 @@ a:hover {
 }
 
 .weather-stat {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: var(--spacing-md);
+    text-align: left;
+    border-left: 3px solid var(--primary-yellow);
+    padding: var(--spacing-xs) var(--spacing-md);
 }
 
 .weather-stat i {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: var(--primary-yellow);
     margin-bottom: var(--spacing-xs);
     display: block;
