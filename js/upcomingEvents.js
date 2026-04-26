@@ -19,13 +19,18 @@ function initUpcomingEvents() {
         return;
     }
 
+    function parseLocalDate(str) {
+        const [y, m, d] = str.split('-').map(Number);
+        return new Date(y, m - 1, d);
+    }
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
     // Filter to today/future events only and sort ascending
     const upcoming = events
-        .filter(event => new Date(event.date) >= today)
-        .sort((a, b) => new Date(a.date) - new Date(b.date))
+        .filter(event => parseLocalDate(event.date) >= today)
+        .sort((a, b) => parseLocalDate(a.date) - parseLocalDate(b.date))
         .slice(0, UPCOMING_EVENTS_LIMIT);
 
     if (upcoming.length === 0) {
@@ -45,10 +50,10 @@ function initUpcomingEvents() {
                 data-category="${event.category}">
             <img src="${event.image}" alt="${event.title}" loading="lazy">
             <div class="event-item-content">
-                <span class="category-badge ${event.category}">${getUpcomingCategoryName(event.category)}</span>
+                <span class="category-badge ${event.category}">${getCategoryName(event.category)}</span>
                 <h3>${event.title}</h3>
                 <div class="event-date-time">
-                    <span><i class="fas fa-calendar-alt"></i> ${formatUpcomingDate(event.date)}</span>
+                    <span><i class="fas fa-calendar-alt"></i> ${formatDate(event.date)}</span>
                     <span><i class="fas fa-clock"></i> ${event.time}</span>
                 </div>
                 <p class="event-location">
@@ -61,7 +66,7 @@ function initUpcomingEvents() {
         // Accessibility for keyboard
         container.querySelectorAll('.event-item').forEach(item => {
             item.addEventListener('keypress', function (e) {
-                if (e.key === 'Enter' || e.key === '') {
+                if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     this.click();
                 }
