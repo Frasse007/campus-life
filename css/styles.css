@@ -1405,11 +1405,11 @@ a:hover {
 .category-badge.cultural        { background-color: #dc3545; color: #fff; }
 .category-badge.announcements   { background-color: #0d9488; color: #ffffff; }
 .category-badge.events          { background-color: #f59e0b; color: #ffffff; }
-.category-badge.dining          { background-color: #FFD100; }
-.category-badge.housing         { background-color: #fd7e14; }
-.category-badge.recreation      { background-color: #dc3545; }
-.category-badge.parking         { background-color: #6c757d; }
-.category-badge.services        { background-color: #002855; }
+.category-badge.dining          { background-color: #FFD100; color: #fff; }
+.category-badge.housing         { background-color: #fd7e14; color: #fff; }
+.category-badge.recreation      { background-color: #dc3545; color: #fff; }
+.category-badge.parking         { background-color: #6c757d; color: #fff; }
+.category-badge.services        { background-color: #002855; color: #fff; }
 
 .news-header h1,
 .event-header h1 {
